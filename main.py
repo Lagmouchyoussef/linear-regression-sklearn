@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -58,6 +60,9 @@ def main():
     plt.legend()
     plt.grid(True, linestyle="--", alpha=0.5)
     plt.tight_layout()
+    out_dir = Path(__file__).parent / "assets"
+    out_dir.mkdir(exist_ok=True)
+    plt.savefig(out_dir / "regression_plot.png", dpi=200)
     plt.show()
     print("Graph displayed with plt.show()")
 
